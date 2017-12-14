@@ -1,0 +1,30 @@
+[
+  {
+    "owner": {"id": 576946},
+    "hasEndDate": false,
+    "number": 1,
+    "importance": 5,
+    "hasStartDate": false,
+    "description": "",
+    "id": 3513294,
+    "title": "Шаблон контакта",
+    "checkResult": true,
+    "workers": {},
+    "status": "В работе",
+    "createDate": "23-05-2016 09:14"
+  }
+,{
+  "owner": {"id": 576946},
+  "hasEndDate": false,
+  "number": 2,
+  "importance": 5,
+  "hasStartDate": false,
+  "description": "",
+  "id": 3513296,
+  "title": "Шаблон компании",
+  "checkResult": true,
+  "workers": {},
+  "status": "В работе",
+  "createDate": "23-05-2016 09:14"
+}
+]
