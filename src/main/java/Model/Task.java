@@ -16,14 +16,53 @@ public class Task {
     private WithNestredId project;
     private String startTime;
     private String endTime;
-
+    private Workers workers;
     private Map<Integer, String>  customData;
 
+
+    public WithNestredId getOwner() {
+        return owner;
+    }
+    public void setOwner(WithNestredId owner) {
+        this.owner = owner;
+    }
+    public WithNestredId getProject() {
+        return project;
+    }
+    public void setProject(WithNestredId project) {
+        this.project = project;
+    }
+    public String getStartTime() {
+        return startTime;
+    }
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+    public String getEndTime() {
+        return endTime;
+    }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+   /* public List<Workers> getWorkers() {
+        return workers;
+    }
+    public void setWorkers(List<Workers> workers) {
+        this.workers = workers;
+    }*/
+
+
+
+    public Map<Integer, String> getCustomData() {
+        return customData;
+    }
+    public void setCustomData(Map<Integer, String> customData) {
+        this.customData = customData;
+    }
     public Map<Integer, String> getContent() {
         return customData;
     }
-
-
     public String getStatus() {
         return status;
     }
@@ -88,8 +127,16 @@ public class Task {
 
             if(customData != null)
             {
-            customData.forEach((i,k) -> System.out.println(customData.get(i)));
+            customData.forEach((i, k) -> System.out.println(customData.get(i)));
             }
+
+        if(workers.getUsers()!=null)
+        workers.getUsers().forEach(i ->{
+
+            System.out.println(i.toString());
+
+
+        });
 
         return "Task{" +
                 ", id='" + id + '\'' +
@@ -103,3 +150,4 @@ public class Task {
     }
 
 }
+
