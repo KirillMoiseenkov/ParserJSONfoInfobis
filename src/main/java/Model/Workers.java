@@ -1,27 +1,36 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Workers {
 
 
-    private List<Users> users;
+
+
+    public List<Users> users;
 
     public List<Users> getUsers() {
         return users;
     }
 
+
+
+    public Workers(){
+
+        users = new ArrayList<>();
+
+    }
+
     @Override
     public String toString() {
-        return "Workers{" +
-                "users=" + users.toString() +
-                '}';
+        return users.toString();
     }
 
     public class Users{
-        private String lastName;
-        private String name;
-        private String id;
+        private String lastName = "\"\"";
+        private String name = "\"\"";
+        private String id = "\"\"";
 
         public String getLastName() {
             return lastName;
@@ -49,11 +58,9 @@ public class Workers {
 
         @Override
         public String toString() {
-            return "Users{" +
-                    "lastName='" + lastName + '\'' +
-                    ", name='" + name + '\'' +
-                    ", id='" + id + '\'' +
-                    '}';
+            return "\""+
+                    lastName +
+                    " " + name;
         }
     }
 

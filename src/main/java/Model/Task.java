@@ -1,24 +1,45 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class Task {
 
 
-    private String number;
+    private String number = "";
     private WithNestredId owner;
-    private String decription;
-    private String status;
-    private String title;
-    private String createDate;
-    private String id;
+    private String decription ="";
+    private String status  = "";
+    private String title  = "";
+    private String createDate  = "";
+    private String id = "";
     private WithNestredId project;
-    private String startTime;
-    private String endTime;
+    private String startTime = "";
+    private String endTime = "";
     private Workers workers;
     private Map<Integer, String>  customData;
+    private List<String> customDataNes;
+    private String duration  = "";
 
+    public List<String> getCustomDataNes() {
+        return customDataNes;
+    }
+
+    public void setCustomDataNes(List<String> customDataNes) {
+        this.customDataNes = customDataNes;
+    }
+
+    public Workers getWorkers() {
+        if(workers !=null)
+        return workers;
+        else
+            return  new Workers();
+    }
+
+    public void setWorkers(Workers workers) {
+        this.workers = workers;
+    }
 
     public WithNestredId getOwner() {
         return owner;
@@ -45,14 +66,38 @@ public class Task {
         this.endTime = endTime;
     }
 
-   /* public List<Workers> getWorkers() {
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+/* public List<Workers> getWorkers() {
         return workers;
     }
     public void setWorkers(List<Workers> workers) {
         this.workers = workers;
     }*/
 
+    public void fillCustom (){
+        customDataNes = new ArrayList<>();
 
+        if(customData !=null) {
+            customDataNes = new ArrayList<>();
+            customDataNes.add(customData.get(50704));
+            customDataNes.add(customData.get(49528));
+            customDataNes.add(customData.get(50718));
+            customDataNes.add(customData.get(50720));
+
+        }else {
+            customDataNes.add("\"\"");
+            customDataNes.add("\"\"");
+            customDataNes.add("\"\"");
+            customDataNes.add("\"\"");
+        }
+
+    }
 
     public Map<Integer, String> getCustomData() {
         return customData;
@@ -100,7 +145,7 @@ public class Task {
     }
     private class WithNestredId{
 
-        private String id;
+        private String id = "";
 
         public String getId() {
             return id;
@@ -115,9 +160,8 @@ public class Task {
 
         @Override
         public String toString() {
-            return "Owner{" +
-                    "id='" + id + '\'' +
-                    '}';
+            return "\"" +
+                    id + "\"";
         }
 
 
