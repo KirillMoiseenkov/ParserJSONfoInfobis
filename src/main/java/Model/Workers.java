@@ -28,9 +28,9 @@ public class Workers {
     }
 
     public class Users{
-        private String lastName = "\"\"";
-        private String name = "\"\"";
-        private String id = "\"\"";
+        private String lastName = "";
+        private String name = "";
+        private String id = "";
 
         public String getLastName() {
             return lastName;
@@ -60,7 +60,7 @@ public class Workers {
         public String toString() {
             return "\""+
                     lastName +
-                    " " + name;
+                    " " + name + "\"";
         }
     }
 

@@ -9,7 +9,7 @@ public class Task {
 
     private String number = "";
     private WithNestredId owner;
-    private String decription ="";
+    private String description ="";
     private String status  = "";
     private String title  = "";
     private String createDate  = "";
@@ -91,10 +91,10 @@ public class Task {
             customDataNes.add(customData.get(50720));
 
         }else {
-            customDataNes.add("\"\"");
-            customDataNes.add("\"\"");
-            customDataNes.add("\"\"");
-            customDataNes.add("\"\"");
+            customDataNes.add("");
+            customDataNes.add("");
+            customDataNes.add("");
+            customDataNes.add("");
         }
 
     }
@@ -133,10 +133,10 @@ public class Task {
         this.id = id;
     }
     public String getDecription() {
-        return decription;
+        return description;
     }
     public void setDecription(String decription) {
-        this.decription = decription;
+        this.description = decription;
     }
     public String getNumber() {
         return number;
@@ -193,7 +193,7 @@ public class Task {
                 ", createDate='" + createDate + '\'' +
                 ", title='" + title + '\'' +
                 ", status='" + status + '\'' +
-                ", decription='" + decription + '\'' +
+                ", decription='" + description + '\'' +
                 ", owner=" + owner.toString() +
                 ", number='" + number + '\'' +
                 '}';
