@@ -28,7 +28,11 @@ public class Action {
 
         private Task task;
         private String descrtiption;
+        private String type = "";
 
+    public String getType() {
+        return type;
+    }
 
     public Task getTask() {
         return task;
@@ -36,7 +40,7 @@ public class Action {
 
     public String getDescrtiption() {
         //System.out.println("задача = " + task.getId() + " des = " + descrtiption.replaceAll("[\\x00-\\x1F]", ""));  //.replace("\n", " ").replace("\r",""));
-        return descrtiption.replace("\n", " ").replace("\r","");  //.replace("\\n", " ").replace("\\r","")replaceAll("[\\x00-\\x1F]", "");
+        return descrtiption.replace("\n", " ").replace("\r", "");  //.replace("\\n", " ").replace("\\r","")replaceAll("[\\x00-\\x1F]", "");
 
     }
 

@@ -46,7 +46,8 @@ public class Service {
                 endVary.setWorkers(t.getWorkers());
 
             final int[] i = {0};
-               actionParser.actions.stream().filter(action -> action.getTask().getId() == Integer.parseInt(t.getId())).forEach(item -> {
+               actionParser.actions.stream().filter(action -> action.getTask().getId() == Integer.parseInt(t.getId()) && !action.getType().equals("StatusChanged") ).forEach(item -> {
+
 
                    endVary.addToComments(item.getDescrtiption().replace("\n", " "), i[0]);
                     i[0]++;
