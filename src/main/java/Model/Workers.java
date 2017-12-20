@@ -67,13 +67,3 @@ public class Workers {
 
 }
 
-
-/*
-
-        "workers": {"users": [{
-        "lastName": "Коршунов",
-        "name": "Андрей",
-        "id": 576946
-    }]},
-
-   */

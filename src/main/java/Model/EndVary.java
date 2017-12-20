@@ -121,15 +121,15 @@ public class EndVary {
         return comments;
     }
 
-    public void addToComments(String comment) {
+    public void addToComments(String comment, int Count) {
         if(comment !=null)
-        comments.add("|||" + comment);
+        comments.add("|||Begin coment:  " + "Count = " + Count + "|||_____ "   + comment + " _____End coment ");
     }
 
     private String converter(String forConvert){
 
         if(forConvert != null)
-           return forConvert.replace(",","_");
+           return forConvert.replace(",","_").replace("\n", " ").replace("\r","");
 
        return forConvert;
    }
@@ -149,7 +149,7 @@ public class EndVary {
 
 
         return
-                "\"" +  id.replace(",","_") +
+                ("\"" +  id.replace(",","_") +
                 "-Number-" + number.replace(",","_") +
                         "\",\"" + "AS"+
                         "\",\"" + "AgroSignal"+
@@ -165,13 +165,15 @@ public class EndVary {
                         "\",\"" + status.replace(",","_") +
                         "\"," + workers.toString() +
                     //    "\",\"" + ""+  //оценка
-                        ",\"" +converter(decription) + "comments:" + converter(comments.toString()) +
+                        ",\"" +converter(decription).replace("\n", " ").replace("\r","") + "comments:" + converter(comments.toString()) +
                   //      "\",\"" + ""+  //Планируемый исполнитель
                  //       "\",\"" + ""+  //Планиуруеиая дата начала
                  //       "\",\"" + ""+  //Планиуруеиая дата окончания
                 //        "\",\"" + ""+  //ветка
-                        "\"," + converter(dur);
+                        "\"," + converter(dur)).replace("\n", " ").replace("\r","");
                  //       "\",\"" + "0";  //голоса
 
     }
+
+
 }

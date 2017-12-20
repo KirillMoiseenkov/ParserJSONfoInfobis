@@ -35,7 +35,9 @@ public class Action {
     }
 
     public String getDescrtiption() {
-        return descrtiption;
+        //System.out.println("задача = " + task.getId() + " des = " + descrtiption.replaceAll("[\\x00-\\x1F]", ""));  //.replace("\n", " ").replace("\r",""));
+        return descrtiption.replace("\n", " ").replace("\r","");  //.replace("\\n", " ").replace("\\r","")replaceAll("[\\x00-\\x1F]", "");
+
     }
 
     public void setDescrtiption(String descrtiption) {
