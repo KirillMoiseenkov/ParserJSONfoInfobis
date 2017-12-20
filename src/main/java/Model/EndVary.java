@@ -10,11 +10,11 @@ import java.util.Map;
 
 public class EndVary {
 
-
-    private String number;
-    private String decription;
-    private String status;
-    private String title;
+    private List<String> comments;
+    private String number = "";
+    private String decription = "";
+    private String status = "";
+    private String title= "";
     private String createDate = "";
     private String id;
 //    private String project;
@@ -113,11 +113,26 @@ public class EndVary {
 
     public EndVary() throws FileNotFoundException {
 
+            comments = new ArrayList<>();
+
     }
 
+    public List<String> getComments() {
+        return comments;
+    }
 
+    public void addToComments(String comment) {
+        if(comment !=null)
+        comments.add("|||" + comment);
+    }
 
+    private String converter(String forConvert){
 
+        if(forConvert != null)
+           return forConvert.replace(",","_");
+
+       return forConvert;
+   }
 
 
     @Override
@@ -128,31 +143,34 @@ public class EndVary {
 
         String dur = "";
         if(duration.length() >0)
-            dur = String.valueOf(Integer.parseInt(duration)*1440);
+            dur = String.valueOf(Integer.parseInt(duration) * 1440);
+
+
+
 
         return
-                "\"" + id +
-                "-Number-" + number +
+                "\"" +  id.replace(",","_") +
+                "-Number-" + number.replace(",","_") +
                         "\",\"" + "AS"+
                         "\",\"" + "AgroSignal"+
 
                   //      "\",\"" + ""+ //tag
                         "\",\"" + "PlanFix"+
-                        "\",\"" + title  +
-                        "\",\"" + createDate +
+                        "\",\"" +converter(title)  +
+                        "\",\"" + createDate.replace(",","_") +
                 //        "\",\"" + ""+  //обновлена
                 //        "\",\"" + ""+  //завершена - надо спросить
-                        "\",\"" + customData.get(2) +  //приоритет
-                        "\",\"" + customData.get(3) +  //50720
-                        "\",\"" + status +
+                        "\",\"" + converter(customData.get(2))+  //приоритет
+                        "\",\"" + converter(customData.get(3)) +  //50720
+                        "\",\"" + status.replace(",","_") +
                         "\"," + workers.toString() +
                     //    "\",\"" + ""+  //оценка
-                        ",\"" +decription +
+                        ",\"" +converter(decription) + "comments:" + converter(comments.toString()) +
                   //      "\",\"" + ""+  //Планируемый исполнитель
                  //       "\",\"" + ""+  //Планиуруеиая дата начала
                  //       "\",\"" + ""+  //Планиуруеиая дата окончания
                 //        "\",\"" + ""+  //ветка
-                        "\"," + dur;
+                        "\"," + converter(dur);
                  //       "\",\"" + "0";  //голоса
 
     }

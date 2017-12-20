@@ -19,9 +19,9 @@ public class TaskParser {
         Gson gson = new Gson();
 
 
-        Task[] task = gson.fromJson(reader, Task[].class);
+        Task[] taskAr = gson.fromJson(reader, Task[].class);
 
-        tasks = Arrays.asList(task);
+        tasks = Arrays.asList(taskAr);
 
      //   tasks.forEach(i -> System.out.println(i.toString()));
     }

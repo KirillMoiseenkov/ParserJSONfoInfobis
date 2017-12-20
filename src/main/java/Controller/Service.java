@@ -1,13 +1,18 @@
+package Controller;
+
 import Model.EndVary;
 import Model.Task;
+import Parsers.ActionParser;
 import Parsers.ProjectParser;
 import Parsers.TaskParser;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Service {
+
 
 
     List<EndVary> endVaries = new ArrayList<>();
@@ -16,6 +21,7 @@ public class Service {
 
         TaskParser taskParser = new TaskParser();
         ProjectParser projectParser = new ProjectParser();
+        ActionParser actionParser = new ActionParser();
 
         for(Task t: taskParser.tasks){
                 t.fillCustom();
@@ -29,18 +35,22 @@ public class Service {
                 endVary.setStatus(t.getStatus());
                 endVary.setCreateDate(t.getCreateDate());
                 endVary.setWorkers(t.getWorkers());
+
+               actionParser.actions.stream().filter(action -> action.getTask().getId() == Integer.parseInt(t.getId())).forEach(item ->{
+                   endVary.addToComments(item.getDescrtiption());
+
+               });
+
+
+
+
                 endVary.setCustomData(t.getCustomDataNes());
 
             endVaries.add(endVary);
-//            if(endVary.getCustomData() != null)
-        //    System.out.println(endVary.getCustomData().toString());
 
             System.out.println(endVary.toString().replace("]","").replace("[",""));
 
 
-            //if(endVary.getWorkers()!=null && endVary.getWorkers().getUsers()!=null) {
-               // System.out.println(endVary.getWorkers().toString());
-            //}
         }
 
     }

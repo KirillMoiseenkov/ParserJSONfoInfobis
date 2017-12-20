@@ -21,8 +21,8 @@ public class ProjectParser {
     public ProjectParser() throws FileNotFoundException {
         JsonReader reader = new JsonReader(new FileReader("projectName.json"));
         Gson gson = new Gson();
-        Projects[] projectse = gson.fromJson(reader, Projects[].class);
-        projectes = Arrays.asList(projectse);
+        Projects[] projectAr = gson.fromJson(reader, Projects[].class);
+        projectes = Arrays.asList(projectAr);
         //projectes.forEach(i -> System.out.println(i.toString()));
     }
 
